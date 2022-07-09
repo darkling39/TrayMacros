@@ -121,3 +121,16 @@ void TrayMacros::setLabel()
     QRadioButton *button = (QRadioButton*)sender();
     ui->l_skreen->setText(button->text() + "+");
 }
+void TrayMacros::closeEvent(QCloseEvent *e)
+{
+    QAction *closeEve = (QAction*)sender();
+    if(closeEve == Close)
+    {
+        e->accept();
+    }
+    else
+    {
+        e->ignore();
+        TrayMacros::hide();
+    }
+}
