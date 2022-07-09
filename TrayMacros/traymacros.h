@@ -20,11 +20,18 @@ public:
     TrayMacros(QWidget *parent = nullptr);
     ~TrayMacros();
 
+private slots:
+    void browser();
+    void player();
+    void search();
+    void speach();
+    void explorer();
 private:
     Ui::TrayMacros *ui;
     QSystemTrayIcon *trayIcon;
     QMenu *menu;
     QAction *Close;
     QAction *Show;
+    QTextToSpeech *speaker;
 };
 #endif // TRAYMACROS_H

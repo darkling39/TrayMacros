@@ -13,11 +13,12 @@ TrayMacros::TrayMacros(QWidget *parent)
     , ui(new Ui::TrayMacros)
 {
     ui->setupUi(this);
-
+    //Icon
     QIcon tray(":/icons_9618.png");
     trayIcon = new QSystemTrayIcon();
     menu = new QMenu();
     trayIcon->setIcon(tray);
+    this->setWindowIcon(tray);
     trayIcon->show();
 
     //Tray-Menu
@@ -36,3 +37,28 @@ TrayMacros::~TrayMacros()
     delete ui;
 }
 
+void TrayMacros::player()
+{
+    system("start aimp");
+}
+
+void TrayMacros::browser()
+{
+    system("start opera");
+}
+
+void TrayMacros::search()
+{
+    system("start http://google.com");
+}
+
+void TrayMacros::speach()
+{
+    QString hello = "hello";
+    speaker->say(hello);
+}
+
+void TrayMacros::explorer()
+{
+    system("start explorer");
+}

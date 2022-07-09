@@ -6,6 +6,6 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     TrayMacros w;
-    w.show();
+    w.hide();
     return a.exec();
 }
