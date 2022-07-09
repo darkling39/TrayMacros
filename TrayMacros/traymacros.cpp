@@ -47,6 +47,9 @@ TrayMacros::TrayMacros(QWidget *parent)
     connect(ui->rb_ctrl, &QRadioButton::toggled, this, &TrayMacros::setLabel);
     connect(ui->rb_shift, &QRadioButton::toggled, this, &TrayMacros::setLabel);
 
+    //change hotkey
+    connect(ui->b_confirm, &QPushButton::clicked, this, &TrayMacros::regKey);
+
 }
 
 TrayMacros::~TrayMacros()
@@ -132,5 +135,100 @@ void TrayMacros::closeEvent(QCloseEvent *e)
     {
         e->ignore();
         TrayMacros::hide();
+    }
+}
+
+void TrayMacros::regKey()
+{
+    QString str = ui->l_skreen->text();
+    int pos = str.lastIndexOf("+")+1;
+    QChar ch = str.operator[](pos);
+    ch = ch.toUpper();
+    int d = ch.toLatin1();
+    qDebug() << ch << " | " << d;
+
+
+    if(ui->rb_player->isChecked() == true)
+    {
+        UnregisterHotKey((HWND)TrayMacros::winId(), 10);
+        if(ui->rb_alt->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(),10, MOD_ALT, d);
+        }
+        else if(ui->rb_ctrl->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 10, MOD_CONTROL, d);
+        }
+        else if(ui->rb_shift->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 10, MOD_SHIFT, d);
+        }
+    }
+
+    else if(ui->rb_browser->isChecked() == true)
+    {
+        UnregisterHotKey((HWND)TrayMacros::winId(), 20);
+        if(ui->rb_alt->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 20, MOD_ALT, d);
+        }
+        else if(ui->rb_ctrl->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 20, MOD_CONTROL, d);
+        }
+        else if(ui->rb_shift->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 20, MOD_SHIFT, d);
+        }
+    }
+
+    else if(ui->rb_search->isChecked() == true)
+    {
+        UnregisterHotKey((HWND)TrayMacros::winId(), 30);
+        if(ui->rb_alt->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(),30, MOD_ALT, d);
+        }
+        else if(ui->rb_ctrl->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 30, MOD_CONTROL, d);
+        }
+        else if(ui->rb_shift->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 30, MOD_SHIFT, d);
+        }
+    }
+
+    else if(ui->rb_explorer->isChecked() == true)
+    {
+        UnregisterHotKey((HWND)TrayMacros::winId(), 40);
+        if(ui->rb_alt->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 40, MOD_ALT, d);
+        }
+        else if(ui->rb_ctrl->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 40, MOD_CONTROL, d);
+        }
+        else if(ui->rb_shift->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 40, MOD_SHIFT, d);
+        }
+    }
+    else if(ui->rb_speaker->isChecked() == true)
+    {
+        UnregisterHotKey((HWND)TrayMacros::winId(), 50);
+        if(ui->rb_alt->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 50, MOD_ALT, d);
+        }
+        else if(ui->rb_ctrl->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 50, MOD_CONTROL, d);
+        }
+        else if(ui->rb_shift->isChecked() == true)
+        {
+            RegisterHotKey((HWND)TrayMacros::winId(), 50, MOD_SHIFT, d);
+        }
     }
 }

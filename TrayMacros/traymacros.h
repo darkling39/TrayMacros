@@ -31,6 +31,7 @@ private slots:
     void explorer();
     void setLabel();
     void closeEvent(QCloseEvent *e);
+    void regKey();
 private:
     Ui::TrayMacros *ui;
     QSystemTrayIcon *trayIcon;
