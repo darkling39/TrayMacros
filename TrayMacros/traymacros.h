@@ -29,6 +29,7 @@ private slots:
     void search();
     void speach();
     void explorer();
+    void setLabel();
 private:
     Ui::TrayMacros *ui;
     QSystemTrayIcon *trayIcon;

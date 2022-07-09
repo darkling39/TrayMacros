@@ -42,6 +42,10 @@ TrayMacros::TrayMacros(QWidget *parent)
     RegisterHotKey((HWND)TrayMacros::winId(), 40, MOD_CONTROL, 'E');
     RegisterHotKey((HWND)TrayMacros::winId(), 50, MOD_CONTROL, 'T');
 
+    //label change
+    connect(ui->rb_alt, &QRadioButton::toggled, this, &TrayMacros::setLabel);
+    connect(ui->rb_ctrl, &QRadioButton::toggled, this, &TrayMacros::setLabel);
+    connect(ui->rb_shift, &QRadioButton::toggled, this, &TrayMacros::setLabel);
 
 }
 
@@ -111,4 +115,9 @@ void TrayMacros::speach()
 void TrayMacros::explorer()
 {
     system("start explorer");
+}
+void TrayMacros::setLabel()
+{
+    QRadioButton *button = (QRadioButton*)sender();
+    ui->l_skreen->setText(button->text() + "+");
 }
