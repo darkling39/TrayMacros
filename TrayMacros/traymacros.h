@@ -2,6 +2,11 @@
 #define TRAYMACROS_H
 
 #include <QMainWindow>
+#include <QSystemTrayIcon>
+#include <QMenu>
+#include <QAction>
+#include "windows.h"
+#include <QTextToSpeech>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TrayMacros; }
