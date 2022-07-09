@@ -20,6 +20,9 @@ public:
     TrayMacros(QWidget *parent = nullptr);
     ~TrayMacros();
 
+protected:
+    bool nativeEvent(const QByteArray &eventType, void *message, long *result);
+
 private slots:
     void browser();
     void player();
