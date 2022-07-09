@@ -22,5 +22,9 @@ public:
 
 private:
     Ui::TrayMacros *ui;
+    QSystemTrayIcon *trayIcon;
+    QMenu *menu;
+    QAction *Close;
+    QAction *Show;
 };
 #endif // TRAYMACROS_H
